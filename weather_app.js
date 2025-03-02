@@ -3,9 +3,10 @@ const card = document.getElementById("card");
 const info = document.querySelectorAll(".info");
 const form = document.getElementById("form");
 const locations = document.getElementById("location");
+require("dotenv").config();
 let err;
 
-const key = "34d59099eff536ab3c8282063704cec8";
+const key = process.env.API_KEY;
 
 form.addEventListener("submit", async (element) => {
 	element.preventDefault();
@@ -20,7 +21,9 @@ form.addEventListener("submit", async (element) => {
 			);
 
 			if (!geoResponse.ok) {
-				throw new Error(`Error: ${geoResponse.status} ${geoResponse.statusText}`);
+				throw new Error(
+					`Error: ${geoResponse.status} ${geoResponse.statusText}`
+				);
 			}
 
 			const geoData = await geoResponse.json();
