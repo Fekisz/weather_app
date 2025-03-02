@@ -24,6 +24,9 @@ form.addEventListener("submit", async (element) => {
 				throw new Error(
 					`Error: ${geoResponse.status} ${geoResponse.statusText}`
 				);
+				throw new Error(
+					`Error: ${geoResponse.status} ${geoResponse.statusText}`
+				);
 			}
 
 			const geoData = await geoResponse.json();
